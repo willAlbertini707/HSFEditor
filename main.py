@@ -8,7 +8,7 @@ app = Flask(__name__, template_folder='templates', static_folder='styling')
 def index():
     return render_template("index.html")
 
-@app.route("/result", methods = ["POST", "GET"])
+@app.route("/result")
 def result():
     return "<h1>Hello</h1>"
 

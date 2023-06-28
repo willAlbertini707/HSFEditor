@@ -99,7 +99,7 @@ main h1 {
     font-size: 50px;
     padding-top: 250px;
     padding-left: 20px;
-    padding-bottom: 0px;
+    padding-bottom: 100px;
 }
 
 main p {
@@ -109,12 +109,35 @@ main p {
     font-family: 'Roboto', sans-serif;
     letter-spacing: 8px;
     font-size: 16px;
+    padding-bottom: 50px;
 }
 
 .sponsors{
-    padding: 0;
     text-align: center;
 }
 .sponsors h1{
+    padding-top: 20px;
+    padding-bottom: 50px;
+}
+
+footer .container {
+    position: relative;
+    padding-top: 500px;
+    text-align: center;
+}
+
+footer ul {
+    height: 80px;
+    list-style: none;
+    margin: 0 auto;
     padding: 0;
+}
+
+footer ul li{
+    display: inline-block;
+    height: 80px;
+    line-height: 80px;
+    list-style: none;
+    padding: 0 10px;
+    transition: background .5s;
 }
