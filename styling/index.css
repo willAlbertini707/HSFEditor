@@ -54,6 +54,14 @@ header p {
     border: 2px solid white;
 }
 
+.btn:hover{
+    color: black;
+    background-color: white;
+    text-decoration: none;
+    padding: 10px 40px;
+    border: 2px solid white;
+}
+
 nav {
     margin-top:100px;
     background: black;

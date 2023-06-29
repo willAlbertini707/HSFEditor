@@ -10,7 +10,7 @@ def index():
 
 @app.route("/result")
 def result():
-    return "<h1>Hello</h1>"
+    return render_template("model.html")
 
 def open_browser():
   webbrowser.open_new("http://127.0.0.1:5000")
