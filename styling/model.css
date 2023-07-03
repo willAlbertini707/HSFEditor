@@ -3,21 +3,29 @@ h3.question {
     font-size: 24px;
     text-align: center;
     font-weight: 100;
+    margin: 10px auto;
 }
 
-.editor-container {
-    width: 900px;
+.panel-container {
+    width: 800px;
     height: 540px;
     margin: 20px auto;
     position: relative;
+    overflow: scroll;
+    padding: 0;
+    display: inline-block;
 }
 
 #editor {
     position: absolute;
-    left: 0;
-    right: 0;
-    top: 0;
-    bottom: 0;
+    height: 100%;
+    width: 100%;
+    font-size: 20px;
+    border-radius: 20px;
+}
+
+#code {
+    position: absolute;
     height: 100%;
     width: 100%;
     font-size: 20px;
