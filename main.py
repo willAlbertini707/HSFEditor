@@ -12,6 +12,10 @@ def index():
 def result():
     return render_template("model.html")
 
+@app.route("/subtemplate")
+def subtemplate():
+    return render_template("template.html")
+
 def open_browser():
   webbrowser.open_new("http://127.0.0.1:5000")
 

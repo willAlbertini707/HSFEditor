@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <p>
+            import sys<br>
+            import clr<br>
+            import System.Collections.Generic<br>
+            import System<br>
+            clr.AddReference('System.Core')<br>
+            clr.AddReference('IronPython')<br>
+            clr.AddReference('System.Xml')<br>
+            clr.AddReferenceByName('Utilities')<br>
+            clr.AddReferenceByName('HSFUniverse')<br>
+            clr.AddReferenceByName('UserModel')<br>
+            clr.AddReferenceByName('MissionElements')<br>
+            clr.AddReferenceByName('HSFSystem')<br><br>
+            
+            import System.Xml<br>
+            import HSFSystem<br>
+            import HSFSubsystem<br>
+            import MissionElements<br>
+            import Utilities<br>
+            import HSFUniverse<br>
+            import UserModel<br>
+            from HSFSubsystem import *<br>
+            from HSFSystem import *<br>
+            from System.Xml import XmlNode<br>
+            from Utilities import *<br>
+            from HSFUniverse import *<br>
+            from UserModel import *<br>
+            from MissionElements import *<br>
+            from System import Func, Delegate<br>
+            from System.Collections.Generic import Dictionary<br>
+            from IronPython.Compiler import CallTarget0<br><br>
+
+            class GenericSubsystem(Subsystem):<br>
+                &emsp;def __init__(self, node, asset):<br>
+                &emsp;&emsp;pass<br><br>
+                &emsp;def GetDependencyDictionary(self):<br>
+                &emsp;&emsp;dep = Dictionary[str, Delegate]()<br>
+                &emsp;&emsp;return dep<br><br>
+                &emsp;def GetDependencyCollector(self):<br>
+                &emsp;&emsp;return Func[Event,  Utilities.HSFProfile[System.Double]](self.DependencyCollector)<br><br>
+                &emsp;def CanPerform(self, event, universe):<br>
+                &emsp;&emsp;return super(subsystem, self).CanPerform(event, universe)<br><br>
+                &emsp;def CanExtend(self, event, universe, extendTo):<br>
+                &emsp;&emsp;return super(subsystem, self).CanExtend(self, event, universe, extendTo)<br><br>
+                &emsp;def DependencyCollector(self, currentEvent):<br>
+                &emsp;&emsp;return super(subsystem, self).DependencyCollector(currentEvent)<br><br>
+
+            <a href="/result">Return back to sandbox</a>
+
+        </p>
+    </body>
+</html>
