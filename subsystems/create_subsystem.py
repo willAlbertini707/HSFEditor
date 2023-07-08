@@ -34,4 +34,5 @@ class CreateSubsystem:
 
 
 if __name__ == "__main__":
-    CreateSubsystem("ADCS").build_template("../")
+    CreateSubsystem("ADCS").build_template()
+    

@@ -10,10 +10,12 @@ def index():
 
 @app.route("/result")
 def result():
+
     return render_template("model.html")
 
 @app.route("/subtemplate")
 def subtemplate():
+    
     return render_template("template.html")
 
 def open_browser():
