@@ -8,12 +8,12 @@ This class is intended to be used privately.
 
 class CreateSubsystem:
 
-    def __init__(self, subsystem: str) -> None:
+    def __init__(self, subsystem: str = None) -> None:
 
         self.subsystem = subsystem
 
 
-    def build_template(self, file_path: str = "") -> None:
+    def build_template(self, file_path: str = "subsystem_templates/template.txt") -> str:
         """
         Function build_template:
         ---------------------------
@@ -21,18 +21,21 @@ class CreateSubsystem:
         contain a valid path. File name is decided by the name of subsystem.
         """
 
-        with open("template.txt", "r") as input:
-            with open(f"{file_path + self.subsystem.lower()}.py", "w") as output:
-                
-                for input_line in input:
+        with open(file_path, "r") as input:
+            full_text = []
+            
+            for input_line in input:
 
+                if self.subsystem:
                     if "fill_in" in input_line:
                         input_line = input_line.replace("fill_in", f"{self.subsystem.lower()}")
 
-                    output.write(input_line)
+                full_text.append(input_line)
 
+        return "\n".join(full_text)
 
 
 if __name__ == "__main__":
-    CreateSubsystem("ADCS").build_template()
+    temp = CreateSubsystem("ADCS").build_template()
+    print(temp)
     

@@ -20,13 +20,15 @@
                     a basic format given by the "subsystem template".
                 </p>
 
-                <h4>Choose from the following existing subsystems view a template</h4>
+                <h4>Choose from the following existing templates for an empty template:</h4>
 
                 <ul>
-                    <li><a href="/subtemplate">Subsystem Template</a></li>
-                    <li>ADCS</li>
-                    <li>Comm</li>
+                    <li><a class="btn" href="/result/subsystem_template">Subsystem Template</a></li>
+                    <li><a class="btn" href="/result/ADCS_template">ADCS Template</a></li>
+                    <li><a class="btn" href="/result/Comm_template">Comm Template</a></li>
                 </ul>
+
+                <h4>Choose from an existing subsystem:</h4>
             </div>
 
             <div class="resizer" data-direction="horizontal"></div>
@@ -35,13 +37,17 @@
 
                 <div class="container__top">
                     <div class="editor_container">
-                        <div id="editor"># Python 3.10.11</div>
+                        <div id="editor"><p># Python 3.10.11{{ variable }} </p></div>
                     </div>
                 </div>
 
                 <div class="resizer" data-direction="vertical"></div>
 
-                <div class="container__bottom"></div>
+                <div class="container__bottom">
+                    <div class="debug_window">
+                        Debug Window
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -50,4 +56,3 @@
     
     </body>
 </html>
-/styling/ace_editor.js
