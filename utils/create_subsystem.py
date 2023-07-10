@@ -13,12 +13,13 @@ class CreateSubsystem:
         self.subsystem = subsystem
 
 
-    def build_template(self, file_path: str = "subsystem_templates/template.txt") -> str:
+    def build_template(self, file_path: str = "subsystem_templates/subsystem_template.txt") -> str:
         """
         Function build_template:
         ---------------------------
         file_path: directory in which to save to subsystem. Must end with '/' and 
-        contain a valid path. File name is decided by the name of subsystem.
+        contain a valid path. File name is decided by the name of subsystem. Defaulted
+        to blank subsystem path.
         """
 
         with open(file_path, "r") as input:
@@ -32,7 +33,7 @@ class CreateSubsystem:
 
                 full_text.append(input_line)
 
-        return "\n".join(full_text)
+        return "".join(full_text)
 
 
 if __name__ == "__main__":

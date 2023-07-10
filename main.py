@@ -5,30 +5,40 @@ import webbrowser
 
 app = Flask(__name__, template_folder='templates', static_folder='static')
 SUBSYSTEM_TEMPLATES = ["subsystem_template", "ADCS_template", "Comm_template"]
-PREBUILT_SUBSYSTEMS = []
+PREBUILT_SUBSYSTEMS = ["aeolus_adcs", "aeolus_Comm"]
 
 @app.route("/")
 def index():
     return render_template("index.html")
 
-@app.route("/result", defaults={"var": ""})
-@app.route("/result/<var>")
+@app.route("/result", defaults={"var": ""}, methods=["POST", "GET"])
+@app.route("/result/<var>", methods=["POST", "GET"])
 def result(var):
-    if var in SUBSYSTEM_TEMPLATES:
+    
+    if request.method == "GET":
+        if var in SUBSYSTEM_TEMPLATES:
 
-        if var == "subsystem_template":
-            var = "\n"
-            var += CreateSubsystem().build_template()
-            var += "\n"
+            if var == "subsystem_template":
+                subsystem_class = "\n" + CreateSubsystem().build_template() + "\n"
+            else:
+                subsystem = var.replace("_template", "")
+                subsystem_class = "\n" + CreateSubsystem(subsystem).build_template() + "\n"
+
+        elif var in PREBUILT_SUBSYSTEMS:
+            path = "subsystem_templates/" + var + ".txt"
+            subsystem_class = "\n" + CreateSubsystem().build_template(path) + "\n"
+
         else:
-            subsystem = var.replace("_template", "")
-            var = "\n"
-            var += CreateSubsystem(subsystem).build_template()
-            var += "\n"
-    else:
-        var = ""
+            subsystem_class = ""
 
-    return render_template("model.html", variable = var)
+        return render_template("model.html", variable = subsystem_class)
+    
+    if request.method == "POST":
+        subsystem = request.form["input_sub"]
+        subsystem_class = "\n" + CreateSubsystem(subsystem).build_template() + "\n"
+
+        return render_template("model.html", variable = subsystem_class)
+
 
 
 def open_browser():
