@@ -5,7 +5,7 @@ editor.session.getValue();
 
 document.getElementById('submitCode').onsubmit = function() {
     let codeVar = document.getElementById("code");
-    codeVar.innerText= editor.session.getValue();
+    codeVar.innerText= editor.session.getDocument().getAllLines();
 };
 
 

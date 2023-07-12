@@ -48,9 +48,9 @@ def result(var):
         return render_template("model.html", variable = subsystem_class)
 
     if request.method == "POST" and "code" in request.form:
-        print(request.form)
+        subsystem_class = request.form['code'].replace(",", "\n")
 
-        return render_template("model.html", variable = request.form['code'])
+        return render_template("model.html", variable = subsystem_class)
 
 def open_browser():
   webbrowser.open_new("http://127.0.0.1:5000")
