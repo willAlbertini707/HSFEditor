@@ -1,10 +1,12 @@
-// Ace editor 
-let editor = document.querySelector("#editor");
+var editor = ace.edit("editor");
+editor.setTheme("ace/theme/vibrant_ink");
+editor.session.setMode("ace/mode/python");
+editor.session.getValue();
 
-ace.edit(editor, {
-    theme: 'ace/theme/vibrant_ink',
-    mode: "ace/mode/python"
-});
+document.getElementById('submitCode').onsubmit = function() {
+    let codeVar = document.getElementById("code");
+    codeVar.innerText= editor.session.getValue();
+};
 
 
 const resizable = function (resizer) {

@@ -34,9 +34,3 @@ class CreateSubsystem:
                 full_text.append(input_line)
 
         return "".join(full_text)
-
-
-if __name__ == "__main__":
-    temp = CreateSubsystem("ADCS").build_template()
-    print(temp)
-    

@@ -40,6 +40,7 @@
                     <li><a class="btn" href="/result/aeolus_adcs">Aeolus ADCS</a></li>
                     <li><a class="btn" href="/result/aeolus_Comm">Aeolus Comm</a></li>
                 </ul>
+                <button class="btn" id="downloadBtn" type="submit" form="submitCode">Download</button>
             </div>
 
             <div class="resizer" data-direction="horizontal"></div>
@@ -48,7 +49,10 @@
 
                 <div class="container__top">
                     <div class="editor_container">
-                        <div id="editor"><p># Python 3.10.11{{ variable }} </p></div>
+                        <form id="submitCode" action="result" method="post">
+                            <div id="editor"># python{{ variable }}</div>
+                            <textarea id="code" name="code" style="display: none;"></textarea>
+                        </form>
                     </div>
                 </div>
 

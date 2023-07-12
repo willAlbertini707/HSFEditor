@@ -7,6 +7,10 @@ app = Flask(__name__, template_folder='templates', static_folder='static')
 SUBSYSTEM_TEMPLATES = ["subsystem_template", "ADCS_template", "Comm_template"]
 PREBUILT_SUBSYSTEMS = ["aeolus_adcs", "aeolus_Comm"]
 
+@app.route("/hello")
+def hello():
+    return "<h1>Hello</h1>"
+
 @app.route("/")
 def index():
     return render_template("index.html")
@@ -33,13 +37,20 @@ def result(var):
 
         return render_template("model.html", variable = subsystem_class)
     
-    if request.method == "POST":
+    if request.method == "POST" and "input_sub" in request.form:
+
         subsystem = request.form["input_sub"]
         subsystem_class = "\n" + CreateSubsystem(subsystem).build_template() + "\n"
+        
+        if "value" in request.form:
+            print(request.form)
 
         return render_template("model.html", variable = subsystem_class)
 
+    if request.method == "POST" and "code" in request.form:
+        print(request.form)
 
+        return render_template("model.html", variable = request.form['code'])
 
 def open_browser():
   webbrowser.open_new("http://127.0.0.1:5000")
