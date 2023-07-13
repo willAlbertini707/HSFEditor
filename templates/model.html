@@ -20,18 +20,13 @@
                     a basic format given by the "subsystem template".
                 </p>
 
-                <h4>Choose from the following existing templates for an empty template:</h4>
-
-                <ul>
-                    <li><a class="btn" href="/result/subsystem_template">Subsystem Template</a></li>
-                    <li><a class="btn" href="/result/ADCS_template">ADCS Template</a></li>
-                    <li><a class="btn" href="/result/Comm_template">Comm Template</a></li>
-                </ul>
+                <h4>Input a subsystem name to generate a class from the template:</h4>
 
                 <form action="result" method = "POST">
-                    <label for="input_sub">Input name for new subsystem:</label>
-                    <input type="text" id="input_sub" name="input_sub">
-                    <input type="submit" value="submit">
+                    <div class="input_style">
+                        <input type="text" id="input_sub" name="input_sub">
+                        <input id="submit_sys" type="submit" value="build subsystem">
+                    </div>
                 </form>
 
 

@@ -5,9 +5,9 @@ editor.session.getValue();
 
 document.getElementById('submitCode').onsubmit = function() {
     let codeVar = document.getElementById("code");
-    codeVar.innerText= editor.session.getDocument().getAllLines();
+    // codeVar.innerText= editor.session.getDocument().getAllLines();
+    codeVar.innerText = JSON.stringify(editor.session.getValue());
 };
-
 
 const resizable = function (resizer) {
     const direction = resizer.getAttribute('data-direction') || 'horizontal';

@@ -67,14 +67,21 @@ body h1.question {
 
 .btn:hover{
     color: black;
-    background-color: white;
+    /* background-color: white; */
     text-decoration: none;
-    border: 2px solid white;
+    border: 2px solid #941c1c;
 }
 
 .container__left form {
     padding-top: 10px;
-    display: block;
+    display: grid;
+    text-align: center;
+}
+
+.container__left form input {
+    align-items: center;
+    border-radius: 5px;
+    border: black 1px solid;
 }
 
 .container .container__left h3, p {

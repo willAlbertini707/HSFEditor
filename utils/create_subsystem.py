@@ -6,12 +6,10 @@ return a template for the subsystem in the same directory.
 This class is intended to be used privately.
 """
 
-class CreateSubsystem:
+class SubsystemBuilder:
 
-    def __init__(self, subsystem: str = None) -> None:
-
+    def __init__(self, subsystem: str) -> None:
         self.subsystem = subsystem
-
 
     def build_template(self, file_path: str = "subsystem_templates/subsystem_template.txt") -> str:
         """
@@ -29,8 +27,23 @@ class CreateSubsystem:
 
                 if self.subsystem:
                     if "fill_in" in input_line:
-                        input_line = input_line.replace("fill_in", f"{self.subsystem.lower()}")
+                        input_line = input_line.replace("fill_in", f"{self.subsystem}")
 
                 full_text.append(input_line)
 
         return "".join(full_text)
+    
+    def save_subsystem(self, class_text: str, file_path: str = "subsystems/") -> None:
+        """
+        Function save_subsystem:
+        --------------------------
+        class_text: entire edited/generated text from subsystem
+        file_path: directory in which to store the model. The file name will be self.subsystem and the extension will be .py
+        """
+
+        full_path = file_path + f"{self.subsystem}" + ".py"
+        with open(full_path, "w") as output:
+            output.write(class_text)
+
+
+
