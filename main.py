@@ -1,11 +1,11 @@
 from flask import Flask, render_template, request
 from utils.create_subsystem import SubsystemBuilder
 from threading import Timer
-import webbrowser
+import webbrowser, html
 
 app = Flask(__name__, template_folder='templates', static_folder='static')
 PREBUILT_SUBSYSTEMS = ["aeolus_adcs", "aeolus_Comm"]
-current_subsystem = None
+current_subsystem = SubsystemBuilder("Unnamed")
 
 @app.route("/")
 def index():
@@ -29,8 +29,6 @@ def result(var: str):
 
         else:
             subsystem_class = ""
-
-        return render_template("model.html", variable = subsystem_class)
     
     if request.method == "POST" and "input_sub" in request.form:
         # handle a user entering input into template generator
@@ -40,20 +38,17 @@ def result(var: str):
         current_subsystem = SubsystemBuilder(subsystem)
         subsystem_class = current_subsystem.build_template() + "\n"
 
-        return render_template("model.html", variable = subsystem_class)
-
 
     if request.method == "POST" and "code" in request.form:
         # handle a user saving the code in the editor
 
         # strip/replace JSON.stringify output from editor
-        subsystem_class = request.form['code'].strip('"').replace("\\n", "\n").replace("\\\"", '"')
+        subsystem_class = request.form['code'][1:-1].replace("\\n", "\n").replace('\\"', '"')
 
-        # if subsystem exists, save it
-        if current_subsystem:
-            current_subsystem.save_subsystem(subsystem_class)
+        # save subsystem to default directory
+        current_subsystem.save_subsystem(subsystem_class)
 
-        return render_template("model.html", variable = subsystem_class)
+    return render_template("model.html", variable = subsystem_class)
 
 
 def open_browser():

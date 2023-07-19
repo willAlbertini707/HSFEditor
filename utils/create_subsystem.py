@@ -11,13 +11,16 @@ class SubsystemBuilder:
     def __init__(self, subsystem: str) -> None:
         self.subsystem = subsystem
 
-    def build_template(self, file_path: str = "subsystem_templates/subsystem_template.txt") -> str:
+    def build_template(self, file_path: str = "subsystem_templates/subsystem_template.txt", from_template: bool = True) -> str:
         """
         Function build_template:
         ---------------------------
         file_path: directory in which to save to subsystem. Must end with '/' and 
         contain a valid path. File name is decided by the name of subsystem. Defaulted
         to blank subsystem path.
+
+        from_template: Boolean flag that decides if text is parsed from the subsystem template. Default to True, use False if
+        reading a saved file.
         """
 
         with open(file_path, "r") as input:
@@ -25,7 +28,7 @@ class SubsystemBuilder:
             
             for input_line in input:
 
-                if self.subsystem:
+                if from_template:
                     if "fill_in" in input_line:
                         input_line = input_line.replace("fill_in", f"{self.subsystem}")
 
@@ -38,6 +41,7 @@ class SubsystemBuilder:
         Function save_subsystem:
         --------------------------
         class_text: entire edited/generated text from subsystem
+
         file_path: directory in which to store the model. The file name will be self.subsystem and the extension will be .py
         """
 

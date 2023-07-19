@@ -43,13 +43,25 @@ class TestCase01(unittest.TestCase):
         global test_class
         test_class = subsystem()
 
+    def test_has_CanPerform(self):
+        self.assertTrue(hasattr(test_class, "CanPerform"))
+
+    def test_has_GetDependencyDictionary(self):
+        self.assertTrue(hasattr(test_class, "GetDependencyDictionary"))
+
+    def test_has_GetDependencyCollector(self):
+        self.assertTrue(hasattr(test_class, "GetDependencyCollector"))
+
+    def test_has_CanExtend(self):
+        self.assertTrue(hasattr(test_class, "CanExtend"))
+
+    def test_has_DependencyCollector(self):
+        self.assertTrue(hasattr(test_class, "DependencyCollector"))
+
     @classmethod
     def tearDownClass(cls):
         global test_class
         del test_class
-
-    def test_add_attr(self):
-        self.assertTrue(hasattr(test_class, "add"))
 
 
 # running tests with runner and printing results
