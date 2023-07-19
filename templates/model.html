@@ -36,12 +36,11 @@
                     <li><a class="btn" href="/result/aeolus_Comm">Aeolus Comm</a></li>
                 </ul>
 
-                <form action="result" method="POST">
-                    
+                <div class="save_file">
+                    <input type="text" id="input_file_name" />
                     <button class="btn" id="downloadBtn" type="submit" form="submitCode">Save File</button>
-
-                </form>
-
+                </div>
+                    
             </div>
 
             <div class="resizer" data-direction="horizontal"></div>
@@ -50,8 +49,10 @@
 
                 <div class="container__top">
                     <div class="editor_container">
+                        <!-- <div id="editor">{{ variable }}</div> -->
                         <form id="submitCode" action="result" method="post">
                             <div id="editor">{{ variable }}</div>
+                            <textarea id="save_file_name" name="fileName" style="display: none;"></textarea>
                             <textarea id="code" name="code" style="display: none;"></textarea>
                         </form>
                     </div>

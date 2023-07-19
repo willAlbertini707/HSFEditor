@@ -36,7 +36,7 @@ class SubsystemBuilder:
 
         return "".join(full_text)
     
-    def save_subsystem(self, class_text: str, file_path: str = "subsystems/") -> None:
+    def save_subsystem(self, class_text: str, file_path: str = "subsystems/", file_name: str = None) -> None:
         """
         Function save_subsystem:
         --------------------------
@@ -45,7 +45,13 @@ class SubsystemBuilder:
         file_path: directory in which to store the model. The file name will be self.subsystem and the extension will be .py
         """
 
-        full_path = file_path + f"{self.subsystem}" + ".py"
+        self._file_name = file_name
+
+        if self._file_name:
+            full_path = file_path + f"{self._file_name}" + ".py"
+        else:
+            full_path = file_path + f"{self.subsystem}" + ".py"
+            
         with open(full_path, "w") as output:
             output.write(class_text)
 

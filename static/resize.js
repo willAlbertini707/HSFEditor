@@ -4,8 +4,9 @@ editor.session.setMode("ace/mode/python");
 editor.session.getValue();
 
 document.getElementById('submitCode').onsubmit = function() {
+    let fileName = document.getElementById("save_file_name");
     let codeVar = document.getElementById("code");
-    // codeVar.innerText= editor.session.getDocument().getAllLines();
+    fileName.innerText = document.getElementById("input_file_name").value
     codeVar.innerText = JSON.stringify(editor.session.getValue());
 };
 

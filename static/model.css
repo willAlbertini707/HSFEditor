@@ -89,6 +89,12 @@ body h1.question {
     width: 100%;
 }
 
+.container__left .save_file {
+    padding: 30px;
+    text-align: center;
+    display: inline-block;
+}
+
 .container__right {
     /* Take the remaining width */
     flex: 1;

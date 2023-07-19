@@ -41,12 +41,16 @@ def result(var: str):
 
     if request.method == "POST" and "code" in request.form:
         # handle a user saving the code in the editor
+        print(request.form)
 
         # strip/replace JSON.stringify output from editor
         subsystem_class = request.form['code'][1:-1].replace("\\n", "\n").replace('\\"', '"')
 
-        # save subsystem to default directory
-        current_subsystem.save_subsystem(subsystem_class)
+        # save subsystem to default directory with chosen file name or default file name
+        if request.form["fileName"]:
+            current_subsystem.save_subsystem(subsystem_class, file_name = request.form["fileName"])
+        else:
+            current_subsystem.save_subsystem(subsystem_class)
 
     return render_template("model.html", variable = subsystem_class)
 
