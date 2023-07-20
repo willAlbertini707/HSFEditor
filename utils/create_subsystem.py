@@ -8,7 +8,7 @@ This class is intended to be used privately.
 
 class SubsystemBuilder:
 
-    def __init__(self, subsystem: str) -> None:
+    def __init__(self, subsystem: str = None) -> None:
         self.subsystem = subsystem
 
     def build_template(self, file_path: str = "subsystem_templates/subsystem_template.txt", from_template: bool = True) -> str:
@@ -49,11 +49,23 @@ class SubsystemBuilder:
 
         if self._file_name:
             full_path = file_path + f"{self._file_name}" + ".py"
-        else:
+        elif self.subsystem:
             full_path = file_path + f"{self.subsystem}" + ".py"
+        else:
+            full_path = file_path + "Unnamed.py" 
+
             
         with open(full_path, "w") as output:
             output.write(class_text)
 
+    def parse_upload(self, file_path: str, file_name: str) -> str:
+        """
+        Function parse_upload:
+        -----------------------
+        file_path: file path to saved upload file. The text of the file will be returned
 
+        file_name: the name of the file being parsed
+        """
 
+        self._file_name = file_name
+        return self.build_template(file_path)

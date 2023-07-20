@@ -1,4 +1,5 @@
 from flask import Flask, render_template, request
+from fileinput import filename
 from utils.create_subsystem import SubsystemBuilder
 from threading import Timer
 import webbrowser, html
@@ -30,7 +31,7 @@ def result(var: str):
         else:
             subsystem_class = ""
     
-    if request.method == "POST" and "input_sub" in request.form:
+    elif request.method == "POST" and "input_sub" in request.form:
         # handle a user entering input into template generator
 
         # use data from post request
@@ -39,9 +40,8 @@ def result(var: str):
         subsystem_class = current_subsystem.build_template() + "\n"
 
 
-    if request.method == "POST" and "code" in request.form:
+    elif request.method == "POST" and "code" in request.form:
         # handle a user saving the code in the editor
-        print(request.form)
 
         # strip/replace JSON.stringify output from editor
         subsystem_class = request.form['code'][1:-1].replace("\\n", "\n").replace('\\"', '"')
@@ -51,6 +51,13 @@ def result(var: str):
             current_subsystem.save_subsystem(subsystem_class, file_name = request.form["fileName"])
         else:
             current_subsystem.save_subsystem(subsystem_class)
+
+    elif request.method == "POST" and "file" in request.files:
+        # handle the uploading and parsing of files to editor
+        file = request.files["file"]
+        save_dir = f"subsystems/{file.filename}"
+        file.save(save_dir)
+        subsystem_class = current_subsystem.parse_upload(save_dir, file.filename)
 
     return render_template("model.html", variable = subsystem_class)
 

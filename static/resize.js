@@ -1,8 +1,10 @@
+// setup ace editor
 var editor = ace.edit("editor");
 editor.setTheme("ace/theme/vibrant_ink");
 editor.session.setMode("ace/mode/python");
 editor.session.getValue();
 
+// submit code and file name on button click
 document.getElementById('submitCode').onsubmit = function() {
     let fileName = document.getElementById("save_file_name");
     let codeVar = document.getElementById("code");
@@ -10,6 +12,13 @@ document.getElementById('submitCode').onsubmit = function() {
     codeVar.innerText = JSON.stringify(editor.session.getValue());
 };
 
+// listen for file submit
+document.getElementById("codeFile").onchange = () => {
+    document.getElementById("fileSubmit").removeAttribute("disabled");
+
+}
+
+// dynamically resize all the windows
 const resizable = function (resizer) {
     const direction = resizer.getAttribute('data-direction') || 'horizontal';
     const prevSibling = resizer.previousElementSibling;
