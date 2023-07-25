@@ -38,7 +38,7 @@ class comm(HSFSubsystem.Subsystem):
         instance.addKey(instance.DATARATE_KEY)
 
         return instance
-		
+
     def GetDependencyDictionary(self):
         dep = Dictionary[str, Delegate]()
         depFunc1 = Func[Event,  Utilities.HSFProfile[System.Double]](self.POWERSUB_PowerProfile_COMMSUB)

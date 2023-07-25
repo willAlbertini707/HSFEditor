@@ -41,19 +41,18 @@ body h1.question {
     display: block;
     min-width: 200px;
     max-width: 400px;
+    overflow: scroll;
 }
 
 .container__left ul {
     padding: 0;
     margin: 0;
     list-style: none;
-    /* width: 100%; */
 }
 
 .container__left ul li {
     display: flex;
     text-align: center;
-    /* width: 100%; */
 }
 
 .btn {
@@ -67,32 +66,41 @@ body h1.question {
 
 .btn:hover{
     color: black;
-    /* background-color: white; */
+    background-color: white;
     text-decoration: none;
-    border: 2px solid #941c1c;
-}
-
-.container__left form {
-    padding-top: 10px;
-    display: grid;
-    text-align: center;
 }
 
 .container__left form input {
     align-items: center;
     border-radius: 5px;
-    border: black 1px solid;
-}
-
-.container .container__left h3, p {
-    text-align: center;
-    width: 100%;
 }
 
 .container__left .save_file {
-    padding: 30px;
+    padding: 20px;
     text-align: center;
     display: inline-block;
+}
+
+.container__left h4 {
+    padding: 0;
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+
+.fileManager {
+    text-align: center;
+}
+
+.fileManager select {
+    width: 100%;
+    display: flex;
+}
+
+.fileManager .btn {
+    width: 25%;
+    margin-right: 20px;
+    padding: 0;
+    margin-top: 0;
 }
 
 .container__right {

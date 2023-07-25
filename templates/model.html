@@ -31,20 +31,35 @@
 
 
                 <h4>Choose from an existing subsystem:</h4>
+                
                 <ul>
                     <li><a class="btn" href="/result/aeolus_adcs">Aeolus ADCS</a></li>
                     <li><a class="btn" href="/result/aeolus_Comm">Aeolus Comm</a></li>
                 </ul>
 
-                <div class="save_file">
-                    <input type="text" id="input_file_name" />
-                    <button class="btn" id="downloadBtn" type="submit" form="submitCode">Save File</button>
-                </div>
-
+                <h4>Upload a file:</h4>
                 <form action="result" method="POST" enctype="multipart/form-data">
                     <input type="file" id="codeFile" name="file" accept=".py">
                     <input type="submit" id="fileSubmit" value="Upload" disabled="disabled">
                 </form>
+
+                <h4>Save Current Subsystem:</h4>
+                <div class="save_file">
+                    <input type="text" id="input_file_name">
+                    <button class="btn" id="downloadBtn" type="submit" form="submitCode">Save File</button>
+                </div>
+
+                <h4>Saved Subsystems:</h4>
+                <div class="fileManager">
+                    <form id="fileSystem" action="result" method="post">
+                        <select id="subsystemFile" name="subsystemFile" value="someForm" size="4">
+                        {{ drop_down|safe }}
+                        </select>
+                        <input class="btn" id="open" value="open" type="submit" form="fileSystem" disabled name="action"/>
+                        <input class="btn" id="tester" value="test" type="submit" form="fileSystem" disabled name="action"/>
+                        <input class="btn" id="delete" value="delete" type="submit" form="fileSystem" disabled name="action"/>
+                    </form>
+                </div>
                     
             </div>
 
@@ -54,7 +69,6 @@
 
                 <div class="container__top">
                     <div class="editor_container">
-                        <!-- <div id="editor">{{ variable }}</div> -->
                         <form id="submitCode" action="result" method="post">
                             <div id="editor">{{ variable }}</div>
                             <textarea id="save_file_name" name="fileName" style="display: none;"></textarea>

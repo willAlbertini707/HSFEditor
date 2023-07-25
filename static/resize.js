@@ -15,7 +15,13 @@ document.getElementById('submitCode').onsubmit = function() {
 // listen for file submit
 document.getElementById("codeFile").onchange = () => {
     document.getElementById("fileSubmit").removeAttribute("disabled");
+}
 
+// do not allow user to open/test/delete without selecting file
+document.getElementById("subsystemFile").onchange = () => {
+    document.getElementById("open").removeAttribute("disabled");
+    document.getElementById("delete").removeAttribute("disabled");
+    document.getElementById("tester").removeAttribute("disabled");
 }
 
 // dynamically resize all the windows

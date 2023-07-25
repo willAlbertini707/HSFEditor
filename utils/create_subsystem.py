@@ -8,8 +8,11 @@ This class is intended to be used privately.
 
 class SubsystemBuilder:
 
+
     def __init__(self, subsystem: str = None) -> None:
         self.subsystem = subsystem
+        self._file_name = None
+
 
     def build_template(self, file_path: str = "subsystem_templates/subsystem_template.txt", from_template: bool = True) -> str:
         """
@@ -35,6 +38,7 @@ class SubsystemBuilder:
                 full_text.append(input_line)
 
         return "".join(full_text)
+
     
     def save_subsystem(self, class_text: str, file_path: str = "subsystems/", file_name: str = None) -> None:
         """
@@ -44,11 +48,13 @@ class SubsystemBuilder:
 
         file_path: directory in which to store the model. The file name will be self.subsystem and the extension will be .py
         """
+        
 
-        self._file_name = file_name
-
-        if self._file_name:
-            full_path = file_path + f"{self._file_name}" + ".py"
+        if file_name:
+            self._file_name = self.check_extension(file_name)
+            full_path = file_path + f"{self._file_name}"
+        elif self._file_name:
+            full_path = file_path + f"{self._file_name}"
         elif self.subsystem:
             full_path = file_path + f"{self.subsystem}" + ".py"
         else:
@@ -57,6 +63,7 @@ class SubsystemBuilder:
             
         with open(full_path, "w") as output:
             output.write(class_text)
+
 
     def parse_upload(self, file_path: str, file_name: str) -> str:
         """
@@ -69,3 +76,15 @@ class SubsystemBuilder:
 
         self._file_name = file_name
         return self.build_template(file_path)
+
+    
+    def check_extension(self, file_name: str) -> str:
+        """
+        Function check_extension:
+        --------------------------
+        file_name: checks string to see if it contains a .py, otherwise one is added
+        """
+        if ".py" not in file_name:
+            return file_name + ".py"
+        else:
+            return file_name
