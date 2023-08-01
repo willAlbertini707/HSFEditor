@@ -5,11 +5,11 @@ import System
 clr.AddReference('System.Core')
 clr.AddReference('IronPython')
 clr.AddReference('System.Xml')
-clr.AddReferenceByName('Utilities')
-clr.AddReferenceByName('HSFUniverse')
-clr.AddReferenceByName('UserModel')
-clr.AddReferenceByName('MissionElements')
-clr.AddReferenceByName('HSFSystem')
+clr.AddReference('Utilities')
+clr.AddReference('HSFUniverse')
+clr.AddReference('UserModel')
+clr.AddReference('MissionElements')
+clr.AddReference('HSFSystem')
 
 import System.Xml
 import HSFSystem
@@ -30,6 +30,8 @@ from System.Collections.Generic import Dictionary
 from IronPython.Compiler import CallTarget0
 
 class fill_in(HSFSubsystem.Subsystem):
+
+    __namespace__ = "PythonBaseModel"
 
     def __init__(self, node, asset):
         pass

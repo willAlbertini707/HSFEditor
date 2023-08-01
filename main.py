@@ -2,11 +2,15 @@
 from flask import Flask, render_template, request
 from fileinput import filename
 from threading import Timer
-import webbrowser, os
+import webbrowser, os, sys
 
 # internal imports
 from utils.create_subsystem import SubsystemBuilder
-from utils.file_manager import FileManager
+from utils.file_manager import display_directory
+from tests.dynamic.runner import run_suite
+
+# add .dll files to path
+sys.path.append("dlls/")
 
 app = Flask(__name__, template_folder='templates', static_folder='static')
 PREBUILT_SUBSYSTEMS = ["aeolus_adcs", "aeolus_Comm"]
@@ -94,8 +98,7 @@ def result(var: str):
 
 
     # display files in subsystem directory
-    file_manager = FileManager()
-    saved_files = file_manager.display_directory("subsystems/")
+    saved_files = display_directory("subsystems/")
 
 
     return render_template("model.html", variable = subsystem_class, drop_down = saved_files)

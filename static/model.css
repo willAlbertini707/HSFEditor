@@ -16,18 +16,21 @@ body h1.question {
     height: 100%;
     width: 100%;
 }
+
 .resizer[data-direction='horizontal'] {
     background-color: black;
     cursor: ew-resize;
     height: 100%;
     width: 2px;
 }
+
 .resizer[data-direction='vertical'] {
     background-color: black;/* #cbd5e0; */
     cursor: ns-resize;
     height: 2px;
     width: 100%;
 }
+
 .container__left {
     /* Initially, the left takes 1/4 width */
     width: 25%;
@@ -114,6 +117,7 @@ body h1.question {
     justify-content: center;
     overflow-x: scroll;
 }
+
 .container__top {
     /* Initial height */
     height: 40rem;
@@ -125,6 +129,7 @@ body h1.question {
     overflow-x: scroll;
     width: 100%;
 }
+
 .container__bottom {
     /* Take the remaining height */
     flex-grow: 1;
@@ -149,7 +154,6 @@ body h1.question {
     position:relative;
     overflow-x: scroll;
 }
-
 
 #editor {
     position: absolute;

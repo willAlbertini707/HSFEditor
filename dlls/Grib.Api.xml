@@ -1,0 +1,1315 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Grib.Api</name>
+    </assembly>
+    <members>
+        <member name="M:Grib.Api.Interop.GribApiException.#ctor(System.String,System.Exception)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Grib.Api.Interop.GribApiException"/> class.
+            </summary>
+            <param name="msg">The MSG.</param>
+            <param name="innerException">The inner exception.</param>
+        </member>
+        <member name="M:Grib.Api.Interop.GribApiException.Create(System.Int32)">
+            <summary>
+            Creates a GribApiException instance using an error code returned by grib_api.
+            </summary>
+            <param name="errCode">The error code.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Grib.Api.Interop.GribApiFatalException.#ctor(System.String,System.Exception)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Grib.Api.Interop.GribApiException"/> class.
+            </summary>
+            <param name="msg">The MSG.</param>
+            <param name="innerException">The inner exception.</param>
+        </member>
+        <member name="T:Grib.Api.GribBox">
+            <summary>
+            A subdomain of field measurements.
+            </summary>
+        </member>
+        <member name="M:Grib.Api.GribBox.#ctor(Grib.Api.Interop.GribHandle,Grib.Api.GeoCoordinate,Grib.Api.GeoCoordinate)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Grib.Api.GribBox"/> class.
+            </summary>
+            <param name="msgHandle">The MSG handle.</param>
+            <param name="nw">The nw.</param>
+            <param name="se">The se.</param>
+        </member>
+        <member name="P:Grib.Api.GribBox.Latitudes">
+            <summary>
+            Gets or sets the latitudes.
+            </summary>
+            <value>
+            The latitudes.
+            </value>
+        </member>
+        <member name="P:Grib.Api.GribBox.Longitudes">
+            <summary>
+            Gets or sets the longitudes.
+            </summary>
+            <value>
+            The longitudes.
+            </value>
+        </member>
+        <member name="P:Grib.Api.GribBox.Indexes">
+            <summary>
+            Gets or sets the indexes.
+            </summary>
+            <value>
+            The indexes.
+            </value>
+        </member>
+        <member name="P:Grib.Api.GribBox.GroupStart">
+            <summary>
+            Gets or sets the group start.
+            </summary>
+            <value>
+            The group start.
+            </value>
+        </member>
+        <member name="P:Grib.Api.GribBox.GroupLength">
+            <summary>
+            Gets or sets the length of the group.
+            </summary>
+            <value>
+            The length of the group.
+            </value>
+        </member>
+        <member name="P:Grib.Api.GribBox.GroupCount">
+            <summary>
+            Gets or sets the group count.
+            </summary>
+            <value>
+            The group count.
+            </value>
+        </member>
+        <member name="P:Grib.Api.GribBox.Count">
+            <summary>
+            Gets or sets the count.
+            </summary>
+            <value>
+            The count.
+            </value>
+        </member>
+        <member name="P:Grib.Api.GribBox.Size">
+            <summary>
+            Gets or sets the size.
+            </summary>
+            <value>
+            The size.
+            </value>
+        </member>
+        <member name="T:Grib.Api.Interop.GribApiLogHandler">
+            <summary>
+            Logging handler.
+            </summary>
+            <param name="lvl">The level.</param>
+            <param name="msg">The MSG.</param>
+        </member>
+        <member name="T:Grib.Api.Interop.GribContext">
+            <summary>
+            Wraps grib_context struct.
+            </summary>
+        </member>
+        <member name="T:Grib.Api.Interop.AutoRef">
+            <summary>
+            RAII-patterned wrapper for unmanaged references.
+            </summary>
+        </member>
+        <member name="M:Grib.Api.Interop.AutoRef.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Grib.Api.Interop.AutoRef"/> class.
+            </summary>
+        </member>
+        <member name="M:Grib.Api.Interop.AutoRef.#ctor(System.IntPtr)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Grib.Api.Interop.AutoRef"/> class.
+            </summary>
+            <param name="handle">The handle.</param>
+        </member>
+        <member name="M:Grib.Api.Interop.AutoRef.Finalize">
+            <summary>
+            Finalizes an instance of the <see cref="T:Grib.Api.Interop.AutoRef"/> class.
+            </summary>
+        </member>
+        <member name="M:Grib.Api.Interop.AutoRef.Dispose(System.Boolean)">
+            <summary>
+            Releases unmanaged and - optionally - managed resources.
+            </summary>
+            <param name="disposing"><c>true</c> to release both managed and unmanaged resources; <c>false</c> to release only unmanaged resources.</param>
+        </member>
+        <member name="M:Grib.Api.Interop.AutoRef.OnDispose(System.Boolean)">
+            <summary>
+            Called when [dispose].
+            </summary>
+            <param name="disposing"><c>true</c> to release both managed and unmanaged resources; <c>false</c> to release only unmanaged resources.</param>
+        </member>
+        <member name="M:Grib.Api.Interop.AutoRef.Dispose">
+            <summary>
+            Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
+            </summary>
+        </member>
+        <member name="M:Grib.Api.Interop.GribContext.#ctor(System.IntPtr)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Grib.Api.Interop.GribContext"/> class.
+            </summary>
+            <param name="h">The h.</param>
+        </member>
+        <member name="M:Grib.Api.Interop.GribContext.OnDispose(System.Boolean)">
+            <summary>
+            Called when [dispose].
+            </summary>
+            <param name="disposing"><c>true</c> to release both managed and unmanaged resources; <c>false</c> to release only unmanaged resources.</param>
+        </member>
+        <member name="M:Grib.Api.Interop.GribContext.OnLogReceived(System.IntPtr,System.Int32,System.String)">
+            <summary>
+            Called when [log received].
+            </summary>
+            <param name="ctx">The grib_context generating the log.</param>
+            <param name="lvl">The level.</param>
+            <param name="msg">The MSG.</param>
+        </member>
+        <member name="E:Grib.Api.Interop.GribContext.OnLog">
+            <summary>
+            Occurs when the grib_api library logs a message.
+            </summary>
+        </member>
+        <member name="P:Grib.Api.Interop.GribContext.EnableMultipleFieldMessages">
+            <summary>
+            Gets or sets a value indicating whether [enable multiple field messages].
+            </summary>
+            <value>
+            <c>true</c> if [enable multiple field messages]; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="T:Grib.Api.Interop.GribHandle">
+            <summary>
+            Wraps grib_handle struct.
+            </summary>
+        </member>
+        <member name="M:Grib.Api.Interop.GribHandle.#ctor(System.IntPtr)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Grib.Api.Interop.GribHandle"/> class.
+            </summary>
+            <param name="h">The h.</param>
+        </member>
+        <member name="M:Grib.Api.Interop.GribHandle.OnDispose(System.Boolean)">
+            <summary>
+            Called when [dispose].
+            </summary>
+            <param name="disposing"><c>true</c> to release both managed and unmanaged resources; <c>false</c> to release only unmanaged resources.</param>
+        </member>
+        <member name="T:Grib.Api.Interop.GribKeysIterator">
+            <summary>
+            Wraps a grib_keys_iterator struct.
+            </summary>
+        </member>
+        <member name="M:Grib.Api.Interop.GribKeysIterator.Next">
+            <summary>
+            Gets the next value in a series.
+            </summary>
+            <returns>False if there are no more values.</returns>
+        </member>
+        <member name="M:Grib.Api.Interop.GribKeysIterator.Rewind">
+            <summary>
+            Rewinds this instance.
+            </summary>
+        </member>
+        <member name="M:Grib.Api.Interop.GribKeysIterator.OnDispose(System.Boolean)">
+            <summary>
+            Called when [dispose].
+            </summary>
+            <param name="disposing"><c>true</c> to release both managed and unmanaged resources; <c>false</c> to release only unmanaged resources.</param>
+        </member>
+        <member name="M:Grib.Api.Interop.GribKeysIterator.Create(Grib.Api.Interop.GribHandle,System.UInt32,System.String)">
+            <summary>
+            Creates an instance of GribKeysIterator.
+            </summary>
+            <param name="handle">The handle of the message to iterate.</param>
+            <param name="filters">The key filters.</param>
+            <param name="nspace">The namespace of the keys to iterate.</param>
+            <returns></returns>
+        </member>
+        <member name="T:Grib.Api.Interop.GribValuesIterator">
+            <summary>
+            Wraps a grib_iterator struct.
+            </summary>
+        </member>
+        <member name="M:Grib.Api.Interop.GribValuesIterator.#ctor(System.IntPtr)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Grib.Api.Interop.GribValuesIterator"/> class.
+            </summary>
+            <param name="h">The h.</param>
+        </member>
+        <member name="M:Grib.Api.Interop.GribValuesIterator.Next(System.Double,Grib.Api.GeoSpatialValue@)">
+            <summary>
+            Gets the next value in a series.
+            </summary>
+            <param name="isMissingFlag">The is missing flag.</param>
+            <param name="gsVal">The gs value.</param>
+            <returns>False if there are no more values.</returns>
+        </member>
+        <member name="M:Grib.Api.Interop.GribValuesIterator.Rewind">
+            <summary>
+            Rewinds this instance.
+            </summary>
+        </member>
+        <member name="M:Grib.Api.Interop.GribValuesIterator.OnDispose(System.Boolean)">
+            <summary>
+            Called when [dispose].
+            </summary>
+            <param name="disposing"><c>true</c> to release both managed and unmanaged resources; <c>false</c> to release only unmanaged resources.</param>
+        </member>
+        <member name="M:Grib.Api.Interop.GribValuesIterator.Create(Grib.Api.Interop.GribHandle,System.UInt32)">
+            <summary>
+            Creates an instance of GribValuesIterator.
+            </summary>
+            <param name="h">The handle of the message to iterate.</param>
+            <param name="filters">The filters.</param>
+            <returns></returns>
+        </member>
+        <member name="P:Grib.Api.Interop.FileHandleProxy.File">
+            <summary>
+            FILE*
+            </summary>
+        </member>
+        <member name="T:Grib.Api.GeoCoordinate">
+            <summary>
+            A geospatial coordinate.
+            </summary>
+        </member>
+        <member name="M:Grib.Api.GeoCoordinate.#ctor(System.Double,System.Double)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Grib.Api.GeoCoordinate"/> struct.
+            </summary>
+            <param name="lat">The lat.</param>
+            <param name="lon">The lon.</param>
+        </member>
+        <member name="M:Grib.Api.GeoCoordinate.Equals(Grib.Api.GeoCoordinate)">
+            <summary>
+            Equals the specified value.
+            </summary>
+            <param name="that">The that.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Grib.Api.GeoCoordinate.Equals(System.Object)">
+            <summary>
+            Determines whether the specified <see cref="T:System.Object"/>, is equal to this instance.
+            </summary>
+            <param name="obj">The <see cref="T:System.Object"/> to compare with this instance.</param>
+            <returns>
+              <c>true</c> if the specified <see cref="T:System.Object"/> is equal to this instance; otherwise, <c>false</c>.
+            </returns>
+        </member>
+        <member name="M:Grib.Api.GeoCoordinate.GetHashCode">
+            <summary>
+            Returns a hash code for this instance.
+            </summary>
+            <returns>
+            A hash code for this instance, suitable for use in hashing algorithms and data structures like a hash table. 
+            </returns>
+        </member>
+        <member name="M:Grib.Api.GeoCoordinate.op_Equality(Grib.Api.GeoCoordinate,Grib.Api.GeoCoordinate)">
+            <summary>
+            Implements the operator ==.
+            </summary>
+            <param name="a">a.</param>
+            <param name="b">The b.</param>
+            <returns>
+            The result of the operator.
+            </returns>
+        </member>
+        <member name="M:Grib.Api.GeoCoordinate.op_Inequality(Grib.Api.GeoCoordinate,Grib.Api.GeoCoordinate)">
+            <summary>
+            Implements the operator !=.
+            </summary>
+            <param name="a">a.</param>
+            <param name="b">The b.</param>
+            <returns>
+            The result of the operator.
+            </returns>
+        </member>
+        <member name="P:Grib.Api.GeoCoordinate.Latitude">
+            <summary>
+            Gets or sets the latitude for this coordinate.
+            </summary>
+            <value>
+            The latitude.
+            </value>
+        </member>
+        <member name="P:Grib.Api.GeoCoordinate.Longitude">
+            <summary>
+            Gets or sets the longitude for this coordinate.
+            </summary>
+            <value>
+            The longitude.
+            </value>
+        </member>
+        <member name="T:Grib.Api.GeoSpatialValue">
+            <summary>
+            A GRIB grid value with coordinates.
+            </summary>
+        </member>
+        <member name="M:Grib.Api.GeoSpatialValue.Equals(Grib.Api.GeoSpatialValue)">
+            <summary>
+            Equals the specified value.
+            </summary>
+            <param name="that">The that.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Grib.Api.GeoSpatialValue.Equals(System.Object)">
+            <summary>
+            Determines whether the specified <see cref="T:System.Object"/>, is equal to this instance.
+            </summary>
+            <param name="obj">The <see cref="T:System.Object"/> to compare with this instance.</param>
+            <returns>
+              <c>true</c> if the specified <see cref="T:System.Object"/> is equal to this instance; otherwise, <c>false</c>.
+            </returns>
+        </member>
+        <member name="M:Grib.Api.GeoSpatialValue.GetHashCode">
+            <summary>
+            Returns a hash code for this instance.
+            </summary>
+            <returns>
+            A hash code for this instance, suitable for use in hashing algorithms and data structures like a hash table. 
+            </returns>
+        </member>
+        <member name="M:Grib.Api.GeoSpatialValue.op_Equality(Grib.Api.GeoSpatialValue,Grib.Api.GeoSpatialValue)">
+            <summary>
+            Implements the operator ==.
+            </summary>
+            <param name="a">a.</param>
+            <param name="b">The b.</param>
+            <returns>
+            The result of the operator.
+            </returns>
+        </member>
+        <member name="M:Grib.Api.GeoSpatialValue.op_Inequality(Grib.Api.GeoSpatialValue,Grib.Api.GeoSpatialValue)">
+            <summary>
+            Implements the operator !=.
+            </summary>
+            <param name="a">a.</param>
+            <param name="b">The b.</param>
+            <returns>
+            The result of the operator.
+            </returns>
+        </member>
+        <member name="T:Grib.Api.GribEnvironment">
+            <summary>
+            Interface for configuring GribApi.NET's runtime environment.
+            </summary>
+            <remarks>
+            See also https://software.ecmwf.int/wiki/display/GRIB/Environment+variables.
+            </remarks>
+        </member>
+        <member name="M:Grib.Api.GribEnvironment.Init">
+            <summary>
+            Initializes GribApi.NET. In very rare cases, you may need to call this method directly
+            to ensure the native libraries are bootstrapped and the environment setup correctly.
+            </summary>
+            <exception cref="T:System.ComponentModel.Win32Exception"></exception>
+        </member>
+        <member name="M:Grib.Api.GribEnvironment.AssertValidEnvironment">
+            <summary>
+            Asserts the valid environment.
+            </summary>
+            <exception cref="T:Grib.Api.Interop.GribApiException">
+            GribEnvironment::DefinitionsPath must be a valid path. If you're using ASP.NET or NUnit, this exception is usually caused by shadow copying. Please see GribApi.NET's documentation for help.
+            or
+            Could not locate 'definitions/boot.def'.
+            </exception>
+        </member>
+        <member name="M:Grib.Api.GribEnvironment.PutEnvVar(System.String,System.String)">
+            <summary>
+            Sets an env variable and notifies the C runtime to update its values.
+            </summary>
+            <param name="name">The name.</param>
+            <param name="val">The value.</param>
+        </member>
+        <member name="P:Grib.Api.GribEnvironment.JpegDumpPath">
+            <summary>
+            Gets or sets the JPEG dump path. This is primarily useful during debugging
+            </summary>
+            <value>
+            The JPEG dump path.
+            </value>
+        </member>
+        <member name="P:Grib.Api.GribEnvironment.NoAbort">
+            <summary>
+            Gets or sets a value indicating whether or not grib_api should abort on an assertion failure or error log.
+            </summary>
+            <value>
+              <c>true</c> if [no abort]; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:Grib.Api.GribEnvironment.DefinitionsPath">
+            <summary>
+            Gets or sets the location of grib_api's definitions directory. By default, it is located at Grib.Api/definitions.
+            </summary>
+            <value>
+            The definitions path.
+            </value>
+        </member>
+        <member name="P:Grib.Api.GribEnvironment.SamplesPath">
+            <summary>
+            Gets or sets the location of grib_api's samples directory. By default, it is located  next to Grib.Api/definitions.
+            </summary>
+            <value>
+            The definitions path.
+            </value>
+        </member>
+        <member name="P:Grib.Api.GribEnvironment.GribApiVersion">
+            <summary>
+            Gets the grib_api version wrapped by this library.
+            </summary>
+            <value>
+            The grib API version.
+            </value>
+        </member>
+        <member name="P:Grib.Api.GribEnvironment.Initialized">
+            <summary>
+            Gets or sets a value indicating whether this <see cref="T:Grib.Api.GribEnvironment"/> is initialized.
+            </summary>
+            <value>
+              <c>true</c> if initialized; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="T:Grib.Api.GribFile">
+            <summary>
+            GRIB file iterator object that provides methods for reading and writing messages. When iterated, returns
+            instances of the <see cref="T:Grib.Api.GribMessage"/> class.
+            </summary>
+        </member>
+        <member name="M:Grib.Api.GribFile.#cctor">
+            <summary>
+            Initializes the <see cref="T:Grib.Api.GribFile"/> class.
+            </summary>
+        </member>
+        <member name="M:Grib.Api.GribFile.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Grib.Api.GribFile"/> class. File read rights are shared between processes.
+            </summary>
+            <param name="fileName">Name of the file.</param>
+            <exception cref="T:System.IO.IOException">Could not open file. See inner exception for more detail.</exception>
+            <exception cref="T:System.IO.FileLoadException">The file is empty.</exception>
+        </member>
+        <member name="M:Grib.Api.GribFile.OnDispose(System.Boolean)">
+            <summary>
+            Called when [dispose].
+            </summary>
+            <param name="disposing"><c>true</c> to release both managed and unmanaged resources; <c>false</c> to release only unmanaged resources.</param>
+        </member>
+        <member name="M:Grib.Api.GribFile.GetEnumerator">
+            <summary>
+            Returns an enumerator that iterates through the collection.
+            </summary>
+            <returns>
+            A <see cref="T:System.Collections.Generic.IEnumerator`1" /> that can be used to iterate through the collection.
+            </returns>
+        </member>
+        <member name="M:Grib.Api.GribFile.Rewind">
+            <summary>
+            Resets the underlying file pointer to the beginning of the file.
+            </summary>
+        </member>
+        <member name="M:Grib.Api.GribFile.System#Collections#IEnumerable#GetEnumerator">
+            <summary>
+            NOT IMPLEMENTED.
+            </summary>
+            <returns>
+            An <see cref="T:System.Collections.IEnumerator"/> object that can be used to iterate through the collection.
+            </returns>
+            <exception cref="T:System.NotImplementedException"></exception>
+        </member>
+        <member name="M:Grib.Api.GribFile.Write(System.String,Grib.Api.GribMessage,System.IO.FileMode)">
+            <summary>
+            Writes a message to the specified path.
+            </summary>
+            <param name="path">The path.</param>
+            <param name="message">The message.</param>
+            <param name="mode">The mode.</param>
+        </member>
+        <member name="M:Grib.Api.GribFile.Write(System.String,Grib.Api.GribFile,System.IO.FileMode)">
+            <summary>
+            Writes all messages in the file to the specified path.
+            </summary>
+            <param name="path">The path.</param>
+            <param name="file">The file.</param>
+            <param name="mode">The mode.</param>
+        </member>
+        <member name="M:Grib.Api.GribFile.Write(System.String,System.Collections.Generic.IEnumerable{Grib.Api.GribMessage},System.IO.FileMode)">
+            <summary>
+            Writes messages the specified path.
+            </summary>
+            <param name="path">The path.</param>
+            <param name="messages">The messages.</param>
+            <param name="mode">The mode.</param>
+        </member>
+        <member name="M:Grib.Api.GribFile.FileIsValid(System.String)">
+            <summary>
+            Performs a basic test to determine if the file is in valid GRIB format.
+            </summary>
+            <param name="fileName">Name of the file.</param>
+            <returns></returns>
+        </member>
+        <member name="P:Grib.Api.GribFile.FileName">
+            <summary>
+            Gets the name of the file.
+            </summary>
+            <value>
+            The name of the file.
+            </value>
+        </member>
+        <member name="P:Grib.Api.GribFile.MessageCount">
+            <summary>
+            Gets or sets the message count.
+            </summary>
+            <value>
+            The message count.
+            </value>
+        </member>
+        <member name="P:Grib.Api.GribFile.Context">
+            <summary>
+            Gets or sets the context.
+            </summary>
+            <value>
+            The context.
+            </value>
+        </member>
+        <member name="T:Grib.Api.GribMessage">
+            <summary>
+            Grib message object. Each grib message has attributes corresponding to grib message keys for GRIB1 and GRIB2.
+            Parameter names are are given by the name, shortName and paramID keys. When iterated, returns instances of the
+            <seealso cref="T:Grib.Api.GribValue"/> class.
+            </summary>
+        </member>
+        <member name="F:Grib.Api.GribMessage.Namespaces">
+            <summary>
+            The key namespaces. Set the <see cref="P:Grib.Api.GribMessage.Namespace"/> property with these values to
+            filter the keys return when iterating this message. Default value is [all].
+            </summary>
+        </member>
+        <member name="M:Grib.Api.GribMessage.#ctor(Grib.Api.Interop.GribHandle,Grib.Api.Interop.GribContext,System.Int32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Grib.Api.GribMessage"/> class.
+            </summary>
+            <param name="handle">The handle.</param>
+            <param name="context">The context.</param>
+            <param name="index">The index.</param>
+        </member>
+        <member name="M:Grib.Api.GribMessage.GetEnumerator">
+            <summary>
+            Returns an enumerator that iterates through the collection.
+            </summary>
+            <returns>
+            A <see cref="T:System.Collections.Generic.IEnumerator`1" /> that can be used to iterate through the collection.
+            </returns>
+        </member>
+        <member name="M:Grib.Api.GribMessage.System#Collections#IEnumerable#GetEnumerator">
+            <summary>
+            NOT IMPLEMENTED.
+            </summary>
+            <returns>
+            An <see cref="T:System.Collections.IEnumerator"/> object that can be used to iterate through the collection.
+            </returns>
+            <exception cref="T:System.NotImplementedException"></exception>
+        </member>
+        <member name="M:Grib.Api.GribMessage.Clone">
+            <summary>
+            Clones this instance.
+            </summary>
+            <returns></returns>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:Grib.Api.GribMessage.Box(Grib.Api.GeoCoordinate,Grib.Api.GeoCoordinate)" -->
+        <member name="M:Grib.Api.GribMessage.Create(Grib.Api.GribFile,System.Int32)">
+            <summary>
+            Creates a GribMessage instance from a <seealso cref="T:Grib.Api.GribFile"/>.
+            </summary>
+            <param name="file">The file.</param>
+            <param name="index">The index.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Grib.Api.GribMessage.ToString">
+            <summary>
+            Returns a <see cref="T:System.String"/> containing metadata about this instance.
+            </summary>
+            <returns>
+            A <see cref="T:System.String"/> containing metadata about this instance.
+            </returns>
+        </member>
+        <member name="M:Grib.Api.GribMessage.Values(System.Double[]@)">
+            <summary>
+            Gets a *copy* of the raw data associated with this message. This data is static,
+            regardless of the projection used.
+            </summary>
+            <remarks>
+            This is an explicit function rather than a property because C# property semantics tempt devs
+            to iterate directly on the values array. For each call to the indexer, however, (eg msg.Values[i])
+            the *entire* array gets copied, leading to terrible performance. At some point we can handle
+            this on the native side.
+            </remarks>
+            <param name="values">The values.</param>
+        </member>
+        <member name="M:Grib.Api.GribMessage.SetValues(System.Double[])">
+            <summary>
+            Sets the raw data associated with this message. The array is *copied*.
+            </summary>
+            <param name="values">The values.</param>
+        </member>
+        <member name="P:Grib.Api.GribMessage.Name">
+            <summary>
+            Gets the parameter name.
+            </summary>
+            <value>
+            The name.
+            </value>
+        </member>
+        <member name="P:Grib.Api.GribMessage.ShortName">
+            <summary>
+            Gets the parameter's short name.
+            </summary>
+            <value>
+            The short name.
+            </value>
+        </member>
+        <member name="P:Grib.Api.GribMessage.Edition">
+            <summary>
+            Gets the GRIB specification edition. grib_api does not always correctly identify the edition, in which case this property return 0.
+            </summary>
+        </member>
+        <member name="P:Grib.Api.GribMessage.ParameterNumber">
+            <summary>
+            Gets or sets the parameter number.
+            </summary>
+            <value>
+            The parameter number.
+            </value>
+        </member>
+        <member name="P:Grib.Api.GribMessage.Units">
+            <summary>
+            Gets or sets the parameter units.
+            </summary>
+            <value>
+            The units.
+            </value>
+        </member>
+        <member name="P:Grib.Api.GribMessage.StepUnit">
+            <summary>
+            Gets or sets the unit of the step. This will be the short name from the following table:
+            
+            0 m  Minute
+            1 h  Hour
+            2 D  Day
+            3 M  Month
+            4 Y  Year
+            5 10Y  Decade (10 years)
+            6 30Y  Normal (30 years)
+            7 C  Century (100 years)
+            10 3h  3 hours
+            11 6h  6 hours
+            12 12h  12 hours
+            13 s  Second
+            14 15m  15 minutes
+            15 30m  30 minutes
+            255 255  Missing
+            
+            </summary>
+            <value>
+            The type of the step.
+            </value>
+        </member>
+        <member name="P:Grib.Api.GribMessage.StepType">
+            <summary>
+            Gets or sets the type of the step.
+            </summary>
+            <value>
+            The type of the step.
+            </value>
+        </member>
+        <member name="P:Grib.Api.GribMessage.StepRange">
+            <summary>
+            Gets or sets the step range.
+            </summary>
+            <value>
+            The step range.
+            </value>
+        </member>
+        <member name="P:Grib.Api.GribMessage.StartStep">
+            <summary>
+            Gets or sets the start step.
+            </summary>
+            <value>
+            The start step.
+            </value>
+        </member>
+        <member name="P:Grib.Api.GribMessage.EndStep">
+            <summary>
+            Gets or sets the end step.
+            </summary>
+            <value>
+            The end step.
+            </value>
+        </member>
+        <member name="P:Grib.Api.GribMessage.TypeOfLevel">
+            <summary>
+            Gets or sets the type of level.
+            </summary>
+            <value>
+            The type of level.
+            </value>
+        </member>
+        <member name="P:Grib.Api.GribMessage.Level">
+            <summary>
+            Gets or sets the level.
+            </summary>
+            <value>
+            The level.
+            </value>
+        </member>
+        <member name="P:Grib.Api.GribMessage.TimeRangeUnit">
+            <summary>
+            Gets or sets the time range unit.
+            </summary>
+            <value>
+            The time range unit.
+            </value>
+        </member>
+        <member name="P:Grib.Api.GribMessage.ReferenceTime">
+            <summary>
+            Gets or set the *reference* time of the data - date and time of start of averaging or accumulation period. Time is UTC.
+            </summary>
+            <value>
+            The reference time.
+            </value>
+        </member>
+        <member name="P:Grib.Api.GribMessage.Time">
+            <summary>
+            Gets the beginning of the time interval, i.e., ReferenceTime + forecastTime or ReferenceTime + P2. Time is UTC.
+            If the time range indicator is greater than 5, ReferenceTime is returned.
+            </summary>
+            <value>
+            The time.
+            </value>
+        </member>
+        <member name="P:Grib.Api.GribMessage.DataPointsCount">
+            <summary>
+            The total number of points on the grid and includes missing as well as 'real' values. DataPointsCount = <see cref="P:Grib.Api.GribMessage.ValuesCount"/> + <see cref="P:Grib.Api.GribMessage.MissingCount"/>.
+            </summary>
+            <value>
+            The data points count.
+            </value>
+        </member>
+        <member name="P:Grib.Api.GribMessage.ValuesCount">
+            <summary>
+            This is the number of 'real' values in the field and excludes the number of missing ones. Identical to 'numberOfCodedValues'
+            </summary>
+            <value>
+            The values count.
+            </value>
+        </member>
+        <member name="P:Grib.Api.GribMessage.MissingCount">
+            <summary>
+            The number of missing values in the field.
+            </summary>
+            <value>
+            The missing count.
+            </value>
+        </member>
+        <member name="P:Grib.Api.GribMessage.Index">
+            <summary>
+            Gets the index of the message within the file.
+            </summary>
+            <value>
+            The index.
+            </value>
+        </member>
+        <member name="P:Grib.Api.GribMessage.Handle">
+            <summary>
+            Gets or sets the grib_handle.
+            </summary>
+            <value>
+            The handle.
+            </value>
+        </member>
+        <member name="P:Grib.Api.GribMessage.MissingValue">
+            <summary>
+            Gets or sets the value used to represent a missing value. This value is used by grib_api,
+            does not exist in the message itself.
+            </summary>
+            <value>
+            The missing value.
+            </value>
+        </member>
+        <member name="P:Grib.Api.GribMessage.HasBitmap">
+            <summary>
+            Gets or sets a value indicating whether this instance has a bitmap.
+            </summary>
+            <value>
+            <c>true</c> if this instance has bitmap; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:Grib.Api.GribMessage.Namespace">
+            <summary>
+            Set this property with a value in <see cref="F:Grib.Api.GribMessage.Namespaces"/> to
+            filter the keys return when iterating this message.
+            </summary>
+            <value>
+            The namespace.
+            </value>
+        </member>
+        <member name="P:Grib.Api.GribMessage.KeyFilters">
+            <summary>
+            Gets or sets the key filters. The default is KeyFilters::All.
+            </summary>
+            <value>
+            The key filter flags. They are OR-able bitflags.
+            </value>
+        </member>
+        <member name="P:Grib.Api.GribMessage.GridType">
+            <summary>
+            Gets the type of the grid.
+            </summary>
+            <value>
+            The type of the grid.
+            </value>
+        </member>
+        <member name="P:Grib.Api.GribMessage.DecimalPrecision">
+            <summary>
+            Gets or sets the decimal precision. Setting this value currently
+            updates all packed values to the new precision. This key is only
+            valid for simple packing.
+            </summary>
+            <value>
+            The decimal precision.
+            </value>
+            <exception cref="T:Grib.Api.Interop.GribApiException">You may only change decimal precision on messages that use simple packing.</exception>
+        </member>
+        <member name="P:Grib.Api.GribMessage.GeoSpatialValues">
+            <summary>
+            Gets the messages values with coordinates.
+            </summary>
+            <value>
+            The geo spatial values.
+            </value>
+        </member>
+        <member name="P:Grib.Api.GribMessage.Size">
+            <summary>
+            Gets the message size.
+            </summary>
+            <value>
+            The size.
+            </value>
+        </member>
+        <member name="P:Grib.Api.GribMessage.Buffer">
+            <summary>
+            Gets a copy of the message's buffer.
+            </summary>
+            <value>
+            The buffer.
+            </value>
+        </member>
+        <member name="P:Grib.Api.GribMessage.Item(System.String)">
+            <summary>
+            Gets the <see cref="T:Grib.Api.GribValue"/> with the specified key name.
+            </summary>
+            <value>
+            The <see cref="T:Grib.Api.GribValue"/>.
+            </value>
+            <param name="keyName">Name of the key.</param>
+            <returns></returns>
+        </member>
+        <member name="T:Grib.Api.GribValue">
+            <summary>
+            Encapsulates logic for encoding and decoding a value within a GRIB message.
+            </summary>
+        </member>
+        <member name="M:Grib.Api.GribValue.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Grib.Api.GribValue"/> class.
+            </summary>
+            <param name="keyName">Name of the key.</param>
+        </member>
+        <member name="M:Grib.Api.GribValue.#ctor(Grib.Api.Interop.GribHandle,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Grib.Api.GribValue"/> class.
+            </summary>
+            <param name="handle">The handle.</param>
+            <param name="keyName">Name of the key.</param>
+        </member>
+        <member name="M:Grib.Api.GribValue.AsString(System.Boolean)">
+            <summary>
+            Gets the key's value.
+            </summary>
+            <param name="inDegrees">if set to <c>true</c>, GribApi.NET will convert the value to degrees when possible.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Grib.Api.GribValue.AsString(System.String)">
+            <summary>
+            Sets the key's value.
+            </summary>
+            <param name="newValue">The new value.</param>
+        </member>
+        <member name="M:Grib.Api.GribValue.AsBytes">
+            <summary>
+            Gets the key's value in bytes.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Grib.Api.GribValue.AsBytes(System.Byte[])">
+            <summary>
+            Sets the key's value in bytes.
+            </summary>
+            <param name="newBytes">The new bytes.</param>
+        </member>
+        <member name="M:Grib.Api.GribValue.AsInt">
+            <summary>
+            Gets the key's value.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Grib.Api.GribValue.AsInt(System.Int32)">
+            <summary>
+            Sets the key's value.
+            </summary>
+            <param name="newValue">The new value.</param>
+        </member>
+        <member name="M:Grib.Api.GribValue.AsIntArray">
+            <summary>
+            Gets a copy of the key's array value. Changing the values of this array does not affect the owning message.
+            Call ::AsXArray(alteredArray) to set new values.
+            </summary>
+            <returns>Returns a *copy* of the key's array.</returns>
+        </member>
+        <member name="M:Grib.Api.GribValue.AsIntArray(System.Int32[])">
+            <summary>
+            Sets the key's value.
+            </summary>
+            <param name="newValues">The new values.</param>
+        </member>
+        <member name="M:Grib.Api.GribValue.AsDouble(System.Boolean)">
+            <summary>
+            Gets the key's value.
+            </summary>
+            <param name="inDegrees">if set to <c>true</c>, GribApi.NET will return the value [in degrees] when possible.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Grib.Api.GribValue.AsDouble(System.Double,System.Boolean)">
+            <summary>
+            Sets the key's value.
+            </summary>
+            <param name="newValue">The new value.</param>
+            <param name="inDegrees">if set to <c>true</c> [in degrees], GribApi.NET will set the value [in degrees] when possible.</param>
+        </member>
+        <member name="M:Grib.Api.GribValue.AsDoubleArray">
+            <summary>
+            Gets a copy of the key's array value. Changing the values of this array does not affect the owning message.
+            Call ::AsXArray(alteredArray) to set new values.
+            </summary>
+            <returns>Returns a *copy* of the key's array.</returns>
+        </member>
+        <member name="M:Grib.Api.GribValue.AsDoubleArray(System.Double[],System.Boolean)">
+            <summary>
+            Sets the key's value.
+            </summary>
+            <param name="newValues">The new values.</param>
+            <param name="force">if set to <c>true</c> [force].</param>
+        </member>
+        <member name="M:Grib.Api.GribValue.BuildTokenForDouble(System.Boolean)">
+            <summary>
+            Builds the token for accesing/mutating double values, accounting for degree conversions.
+            </summary>
+            <param name="inDegrees">if set to <c>true</c> [in degrees].</param>
+            <returns></returns>
+        </member>
+        <member name="M:Grib.Api.GribValue.ToString">
+            <summary>
+            Returns a <see cref="T:System.String"/> that represents the value as a string.
+            </summary>
+            <returns>
+            A <see cref="T:System.String"/> that represents the value as a string.
+            </returns>
+        </member>
+        <member name="M:Grib.Api.GribValue.NativeTypeForKey(System.String)">
+            <summary>
+            Gets an enum describing a key's representation within the message.
+            </summary>
+            <param name="key">The key.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Grib.Api.GribValue.AssertTypeSafe(Grib.Api.Interop.GribValueType)">
+            <summary>
+            Tests for type safety when accessing this value.
+            </summary>
+            <param name="requestedType">The expected type.</param>
+        </member>
+        <member name="M:Grib.Api.GribValue.AssertTypeSafe(System.String,Grib.Api.Interop.GribValueType,Grib.Api.Interop.GribValueType)">
+            <summary>
+            Tests for type safety when accessing a GRIB value.
+            </summary>
+            <param name="key">The key.</param>
+            <param name="requestedType">The requested type.</param>
+            <param name="actualType">The actual type.</param>
+            <exception cref="T:Grib.Api.Interop.GribValueTypeException"></exception>
+        </member>
+        <member name="P:Grib.Api.GribValue.CanConvertToDegrees">
+            <summary>
+            Determines whether this instance's value [can convert to degrees]. The ECMWF's grib_api
+            documentation states degree conversion should be used whenever possible. Only relevant
+            to coordinates.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:Grib.Api.GribValue.Key">
+            <summary>
+            Gets the key name for this value.
+            </summary>
+            <value>
+            The key name.
+            </value>
+        </member>
+        <member name="P:Grib.Api.GribValue.IsMissing">
+            <summary>
+            Gets or sets a value indicating whether the value associated with this key is missing.
+            </summary>
+            <value>
+            <c>true</c> if this value is missing; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:Grib.Api.GribValue.IsDefined">
+            <summary>
+            Return true if the given key exists (is defined) in the grib message.
+            </summary>
+            <value>
+            <c>true</c> if key is defined; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:Grib.Api.GribValue.NativeType">
+            <summary>
+            Gets an enum describing the value's representation within the message.
+            </summary>
+            <value>
+            The type of the native.
+            </value>
+        </member>
+        <member name="P:Grib.Api.GribValue.IsReadOnly">
+            <summary>
+            Gets a value indicating whether this value is read only.
+            </summary>
+            <value>
+            <c>true</c> if this instance is read only; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="T:Grib.Api.Interop.GribValueType">
+            <summary>
+            Values returned by grib_api to indicate the type associated with a key.
+            </summary>
+            <remarks>
+            /* Types */
+             /*  undefined */
+             #define GRIB_TYPE_UNDEFINED 0
+             /*  long integer */
+             #define GRIB_TYPE_LONG 1
+             /*  double */
+             #define GRIB_TYPE_DOUBLE 2
+             /*  char*    */
+             #define GRIB_TYPE_STRING 3
+             /*  bytes */
+             #define GRIB_TYPE_BYTES 4
+             /*  section */
+             #define GRIB_TYPE_SECTION 5
+             /*  label */
+             #define GRIB_TYPE_LABEL 6
+             /*  missing */
+             #define GRIB_TYPE_MISSING 7
+            </remarks>
+        </member>
+        <member name="M:Grib.Api.Interop.GribValueTypeExtension.AsString(Grib.Api.Interop.GribValueType)">
+            <summary>
+            Retrieves the GRIB key's type name.
+            </summary>
+            <param name="vt">The vt.</param>
+            <returns></returns>
+        </member>
+        <member name="T:Grib.Api.Interop.KeyFilters">
+            <summary>
+            Bitwise OR-able bitflags used to filter message keys when iterating.
+            </summary>
+        </member>
+        <member name="T:Grib.Api.Interop.SizeT">
+            <summary>
+            SizeT is a variable-size, platform-dependent unsigned integer. 
+            It can store the maximum size of a theoretically possible object
+            of any type (including array). Implicitly convertable to UInt.
+            <para>&#160;</para>
+            Example:
+            <code>
+            <para>&#160;&#160;SizeT size = 1;</para>
+            <para>&#160;&#160;int[] myArray = new int[size];</para>
+            <para>&#160;&#160;size = (SizeT) getSomeInt();</para>
+            <para>&#160;&#160;Int64 big = (Int64) size;</para>
+            </code>
+            </summary>
+        </member>
+        <member name="F:Grib.Api.Interop.SizeT.Value">
+            <summary>
+            The value.
+            </summary>
+        </member>
+        <member name="M:Grib.Api.Interop.SizeT.#ctor(System.UIntPtr)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Grib.Api.Interop.SizeT"/> struct.
+            </summary>
+            <param name="val">The value.</param>
+        </member>
+        <member name="M:Grib.Api.Interop.SizeT.#ctor(System.UInt32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Grib.Api.Interop.SizeT"/> struct.
+            </summary>
+            <param name="val">The value.</param>
+        </member>
+        <member name="M:Grib.Api.Interop.SizeT.#ctor(System.Int32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Grib.Api.Interop.SizeT"/> struct.
+            </summary>
+            <param name="val">The value.</param>
+        </member>
+        <member name="M:Grib.Api.Interop.SizeT.op_Implicit(System.UIntPtr)~Grib.Api.Interop.SizeT">
+            <summary>
+            Performs an implicit conversion from <see cref="T:System.UIntPtr"/> to <see cref="T:Grib.Api.Interop.SizeT"/>.
+            </summary>
+            <param name="s">The s.</param>
+            <returns>
+            The result of the conversion.
+            </returns>
+        </member>
+        <member name="M:Grib.Api.Interop.SizeT.op_Implicit(System.UInt32)~Grib.Api.Interop.SizeT">
+            <summary>
+            Performs an implicit conversion from <see cref="T:System.UInt32"/> to <see cref="T:Grib.Api.Interop.SizeT"/>.
+            </summary>
+            <param name="s">The s.</param>
+            <returns>
+            The result of the conversion.
+            </returns>
+        </member>
+        <member name="M:Grib.Api.Interop.SizeT.op_Explicit(System.UInt64)~Grib.Api.Interop.SizeT">
+            <summary>
+            Performs an explicit conversion from <see cref="T:System.UInt64"/> to <see cref="T:Grib.Api.Interop.SizeT"/>.
+            </summary>
+            <param name="s">The s.</param>
+            <returns>
+            The result of the conversion.
+            </returns>
+        </member>
+        <member name="M:Grib.Api.Interop.SizeT.op_Explicit(System.Int32)~Grib.Api.Interop.SizeT">
+            <summary>
+            Performs an explicit conversion from <see cref="T:System.Int32"/> to <see cref="T:Grib.Api.Interop.SizeT"/>.
+            </summary>
+            <param name="s">The s.</param>
+            <returns>
+            The result of the conversion.
+            </returns>
+        </member>
+        <member name="M:Grib.Api.Interop.SizeT.op_Explicit(System.Int64)~Grib.Api.Interop.SizeT">
+            <summary>
+            Performs an explicit conversion from <see cref="T:System.Int64"/> to <see cref="T:Grib.Api.Interop.SizeT"/>.
+            </summary>
+            <param name="s">The s.</param>
+            <returns>
+            The result of the conversion.
+            </returns>
+        </member>
+        <member name="M:Grib.Api.Interop.SizeT.op_Implicit(Grib.Api.Interop.SizeT)~System.UIntPtr">
+            <summary>
+            Performs an implicit conversion from <see cref="T:Grib.Api.Interop.SizeT"/> to <see cref="T:System.UIntPtr"/>.
+            </summary>
+            <param name="s">The s.</param>
+            <returns>
+            The result of the conversion.
+            </returns>
+        </member>
+        <member name="M:Grib.Api.Interop.SizeT.op_Implicit(Grib.Api.Interop.SizeT)~System.UInt32">
+            <summary>
+            Performs an implicit conversion from <see cref="T:Grib.Api.Interop.SizeT"/> to <see cref="T:System.UInt32"/>.
+            </summary>
+            <param name="s">The s.</param>
+            <returns>
+            The result of the conversion.
+            </returns>
+        </member>
+        <member name="M:Grib.Api.Interop.SizeT.op_Implicit(Grib.Api.Interop.SizeT)~System.UInt64">
+            <summary>
+            Performs an implicit conversion from <see cref="T:Grib.Api.Interop.SizeT"/> to <see cref="T:System.UInt64"/>.
+            </summary>
+            <param name="s">The s.</param>
+            <returns>
+            The result of the conversion.
+            </returns>
+        </member>
+        <member name="M:Grib.Api.Interop.SizeT.op_Explicit(Grib.Api.Interop.SizeT)~System.Int32">
+            <summary>
+            Performs an explicit conversion from <see cref="T:Grib.Api.Interop.SizeT"/> to <see cref="T:System.Int32"/>.
+            </summary>
+            <param name="s">The s.</param>
+            <returns>
+            The result of the conversion.
+            </returns>
+        </member>
+        <member name="M:Grib.Api.Interop.SizeT.op_Explicit(Grib.Api.Interop.SizeT)~System.Int64">
+            <summary>
+            Performs an explicit conversion from <see cref="T:Grib.Api.Interop.SizeT"/> to <see cref="T:System.Int64"/>.
+            </summary>
+            <param name="s">The s.</param>
+            <returns>
+            The result of the conversion.
+            </returns>
+        </member>
+        <member name="M:Grib.Api.Interop.SizeT.GetHashCode">
+            <summary>
+            Returns a hash code for this instance.
+            </summary>
+            <returns>
+            A hash code for this instance, suitable for use in hashing algorithms and data structures like a hash table. 
+            </returns>
+        </member>
+        <member name="M:Grib.Api.Interop.SizeT.op_Equality(Grib.Api.Interop.SizeT,Grib.Api.Interop.SizeT)">
+            <summary>
+            Implements the operator ==.
+            </summary>
+            <param name="a">a.</param>
+            <param name="b">The b.</param>
+            <returns>
+            The result of the operator.
+            </returns>
+        </member>
+        <member name="M:Grib.Api.Interop.SizeT.op_Inequality(Grib.Api.Interop.SizeT,Grib.Api.Interop.SizeT)">
+            <summary>
+            Implements the operator !=.
+            </summary>
+            <param name="a">a.</param>
+            <param name="b">The b.</param>
+            <returns>
+            The result of the operator.
+            </returns>
+        </member>
+        <member name="M:Grib.Api.Interop.SizeT.Equals(System.Object)">
+            <summary>
+            Determines whether the specified <see cref="T:System.Object"/>, is equal to this instance.
+            </summary>
+            <param name="obj">The <see cref="T:System.Object"/> to compare with this instance.</param>
+            <returns>
+              <c>true</c> if the specified <see cref="T:System.Object"/> is equal to this instance; otherwise, <c>false</c>.
+            </returns>
+        </member>
+        <member name="P:Grib.Api.Interop.SizeT.Size">
+            <summary>
+            Gets the size of the value's container. 4 on x86, 8 on x64.
+            </summary>
+            <value>
+            The size.
+            </value>
+        </member>
+    </members>
+</doc>
