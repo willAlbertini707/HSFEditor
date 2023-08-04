@@ -1,30 +1,7 @@
-"""
-This module contains functions for managing the files in the app. Functionality
-includes but is not limited to displaying files and dynamically loading in modules.
-"""
-# external imports
-import os, re, sys
+#external imports
 from typing import Optional
+import sys, re, os
 import unittest
-from importlib import import_module, reload
-
-def display_directory(directory: str) -> str:
-    """
-    Function display_directory:
-    ----------------------------
-    directory: A string containing the path to the direcotry to be displayed.
-    Files are displayed as <option> types.
-
-    """
-    files = os.listdir(directory)
-
-    drop_down = ""
-    for file in [file for file in files if ".py" in file]:
-        option = f"""<option value="{file}">{file}</option>\n\t"""
-        drop_down += option
-
-    return drop_down
-
 
 def parse_class_from_file(file_path: str) -> Optional[str]:
     """
@@ -64,20 +41,34 @@ def parse_class_name(string: str) -> Optional[str]:
     return None
 
 
-def load_object(module: str, class_name: str, node: object, asset: object) -> object:
+def parse_module_from_path(module_path: str) -> Optional[str]:
     """
-    Function load_object:
-    ----------------------
-    module: module where the object is located.
-    class_name: name of the object
-    node: input argument #1
-    asset: input argument #2
+    Function parse_module_from_path:
+    ----------------------------------
+    string: module path to be searched.
     """
-    if module in sys.modules:
-        subsystem = getattr(reload(module), class_name)
-    else:
-        subsystem = getattr(import_module(module), class_name)
-    return subsystem(node, asset)
+
+    pattern = re.compile(r'(\w+).py')
+
+    # keep track of directory if not in cwd
+    module_directory = None
+
+    try:
+        if "/" in module_path:
+            split_path = module_path.split("/")
+            file = split_path.pop()
+            module_directory = "/".join(split_path) + "/"
+        else:
+            file = module_path
+        result = pattern.search(file)
+        module_name = result.group(1)
+        
+        return module_name, module_directory
+    
+    except:
+        pass
+
+    return None
 
 
 
@@ -104,10 +95,21 @@ class Test_Case(unittest.TestCase):
 
         os.remove(file)
 
+    def test_parse04(self):
+        module_path = "mod1/mod2/module.py"
+        parsed_module = parse_module_from_path(module_path)
+        self.assertEqual(parsed_module, ("module", "mod1/mod2/"))
+
+    def test_parse05(self):
+        module_path = "mod1/mod2.py"
+        parsed_module = parse_module_from_path(module_path)
+        self.assertEqual(parsed_module, ("mod2", "mod1/"))
+
+    def test_parse06(self):
+        module_path = "mod2.py"
+        parsed_module = parse_module_from_path(module_path)
+        self.assertEqual(parsed_module, ("mod2", None))
+
 
 if __name__ == "__main__":
     unittest.main()
-
-
-
-

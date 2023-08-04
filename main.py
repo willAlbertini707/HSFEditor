@@ -6,7 +6,7 @@ import webbrowser, os, sys
 
 # internal imports
 from utils.create_subsystem import SubsystemBuilder
-from utils.file_manager import display_directory
+from utils.file_manager import display_directory, parse_class_from_file, load_object
 from tests.dynamic.runner import run_suite
 
 # add .dll files to path
@@ -84,12 +84,15 @@ def result(var: str):
         if request.form["action"] == "open":
             # file is only opened and parsed to editor
             subsystem_class = current_subsystem.parse_upload(file_dir, file)
-            pass
+            
 
         elif request.form["action"] == "test":
             # file is opened and tested
             subsystem_class = current_subsystem.parse_upload(file_dir, file)
-            pass
+
+            # try to dynamically instantiate the object
+            os.system(f"python tests/test_runner.py {file_dir}")
+            
 
         elif request.form["action"] == "delete":
             # remove a file from the directory
