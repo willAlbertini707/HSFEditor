@@ -6,8 +6,7 @@ import webbrowser, os, sys
 
 # internal imports
 from utils.create_subsystem import SubsystemBuilder
-from utils.file_manager import display_directory, parse_class_from_file, load_object
-from tests.dynamic.runner import run_suite
+from utils.file_manager import display_directory
 
 # add .dll files to path
 sys.path.append("dlls/")

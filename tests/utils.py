@@ -106,9 +106,9 @@ class Test_Case(unittest.TestCase):
         self.assertEqual(parsed_module, ("mod2", "mod1/"))
 
     def test_parse06(self):
-        module_path = "mod2.py"
+        module_path = "mod_2.py"
         parsed_module = parse_module_from_path(module_path)
-        self.assertEqual(parsed_module, ("mod2", None))
+        self.assertEqual(parsed_module, ("mod_2", None))
 
 
 if __name__ == "__main__":

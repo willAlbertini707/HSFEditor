@@ -6,14 +6,16 @@ from importlib import import_module
 from utils import parse_class_from_file, parse_module_from_path
 from dynamic.runner import run_suite
 
-sys.path.append("dlls/")
+# add path to dlls for testing
+dlls_path = os.path.join(os.path.dirname(__file__), "dlls/")
+sys.path.append(dlls_path)
 
 try:
     module_path = sys.argv.pop()
     with open(module_path, "r") as _:
         pass
 except:
-    print("Module could not be opened")
+    print("Module could not be opened, check path")
     sys.exit()
 
 
