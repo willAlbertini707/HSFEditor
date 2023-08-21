@@ -6,7 +6,7 @@ import webbrowser, os, sys
 
 # internal imports
 from utils.create_subsystem import SubsystemBuilder
-from utils.file_manager import display_directory
+from utils.file_manager import display_directory, wipe_log_file, display_log_file
 from utils.input_validator import UserInputHandler
 
 # add .dll files to path
@@ -27,6 +27,9 @@ def result(var: str):
     # add current_subsystem to scope to keep track of state/current subsystem in editor
     global current_subsystem
     global subsystem_class
+
+    # read test result file 
+    test_results = display_log_file()
 
     # check the subsystems directory for python files to display
     saved_files = [file for file in os.listdir("files/subsystems/") if ".py" in file]
@@ -107,6 +110,9 @@ def result(var: str):
 
     elif request.method == "POST" and "moduleName" in request.form:
 
+        # wipe the old log for new test
+        wipe_log_file()
+
         mutable_form = dict(request.form)
         mutable_form["moduleName"] = "files/subsystems/" + mutable_form["moduleName"]
         
@@ -115,6 +121,8 @@ def result(var: str):
         input = input.get_test_input_string()
         os.system(f"python tests/test_runner.py {input}")
 
+        # display the results of the test
+        test_results = display_log_file()
 
 
     # display files in subsystem directory
@@ -124,7 +132,7 @@ def result(var: str):
     xml_file = display_directory("files/xml_files/")
 
     return render_template("model.html", variable = subsystem_class, drop_down = saved_files, 
-                           xml_files = xml_file)
+                           xml_files = xml_file, test_results = test_results)
 
 
 def open_browser():
