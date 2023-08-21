@@ -14,7 +14,7 @@ class SubsystemBuilder:
         self._file_name = None
 
 
-    def build_template(self, file_path: str = "subsystem_templates/subsystem_template.txt", from_template: bool = True) -> str:
+    def build_template(self, file_path: str = "files/subsystem_templates/subsystem_template.txt", from_template: bool = True) -> str:
         """
         Function build_template:
         ---------------------------
@@ -40,7 +40,7 @@ class SubsystemBuilder:
         return "".join(full_text)
 
     
-    def save_subsystem(self, class_text: str, file_path: str = "subsystems/", file_name: str = None) -> None:
+    def save_subsystem(self, class_text: str, file_path: str = "files/subsystems/", file_name: str = None) -> None:
         """
         Function save_subsystem:
         --------------------------

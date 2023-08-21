@@ -37,7 +37,7 @@
                     <li><a class="btn" href="/result/aeolus_Comm">Aeolus Comm</a></li>
                 </ul>
 
-                <h4>Upload a file:</h4>
+                <h4>Upload a Subsystem:</h4>
                 <form action="result" method="POST" enctype="multipart/form-data">
                     <input type="file" id="codeFile" name="file" accept=".py">
                     <input type="submit" id="fileSubmit" value="Upload" disabled="disabled">
@@ -56,10 +56,46 @@
                         {{ drop_down|safe }}
                         </select>
                         <input class="btn" id="open" value="open" type="submit" form="fileSystem" disabled name="action"/>
-                        <input class="btn" id="tester" value="test" type="submit" form="fileSystem" disabled name="action"/>
                         <input class="btn" id="delete" value="delete" type="submit" form="fileSystem" disabled name="action"/>
                     </form>
+
+                    <h3>------------ Testing ------------</h3>
                 </div>
+
+                <h4>Upload an XML Document:</h4>
+                <p>Each file must contain a either "model", "sim", or "target" in the file name</p>
+                <form action="result" method="POST" enctype="multipart/form-data">
+                    <input type="file" id="xmlFile" name="xmlFile" accept=".xml">
+                    <input type="submit" id="xmlFileSubmit" value="Upload" disabled="disabled">
+                </form>
+
+                <h4>XML Simulation Files:</h4>
+                <div class="fileManager">
+                    <form id="xmlFileSystem" action="result" method="post">
+                        <select id="dirXmlFile" name="dirXmlFile" size="4">
+                            {{ xml_files|safe }}
+                        </select>
+                        <input class="btn" id="deleteXml" value="delete" type="submit" form="xmlFileSystem" disabled name="action"/>
+                        </select>
+                    </form>
+                </div>
+
+                <h4>Subsystem Test Parameters:</h4>
+                <div class="testInput">
+                    <form id="testModelParams" action="result" method="POST">
+                        <label>Module Name:</label><input type="text" id="moduleName" name="moduleName" required>
+                        <label>Class Name:</label><input type="text" id="className" name="className" required>
+                        <label>Asset Name:</label><input type="text" id="assetName" name="assetName" required>
+                        <label>Task Name:</label><input type="text" id="taskName" name="taskName" required>
+                        <label>Event Start:</label><input type="text" id="eventStart" name="eventStart" required>
+                        <label>Event End:</label><input type="text" id="eventEnd" name="eventEnd" required>
+                        <label>Task Start:</label><input type="text" id="taskStart" name="taskStart" required>
+                        <label>Task End:</label><input type="text" id="taskEnd" name="taskEnd" required>
+                        <br>
+                        <input class="btn" id="submitForTesting" value="submit" type="submit">
+                    </form>
+                </div>
+
                     
             </div>
 

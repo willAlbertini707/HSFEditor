@@ -46,6 +46,9 @@ def parse_module_from_path(module_path: str) -> Optional[str]:
     Function parse_module_from_path:
     ----------------------------------
     string: module path to be searched.
+
+    return: (module_name, module_directory) tuple containing the module name and module 
+    directory
     """
 
     pattern = re.compile(r'(\w+).py')

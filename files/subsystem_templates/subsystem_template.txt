@@ -13,7 +13,6 @@ clr.AddReference('HSFSystem')
 
 import System.Xml
 import HSFSystem
-import HSFSubsystem
 import MissionElements
 import Utilities
 import HSFUniverse
@@ -29,7 +28,7 @@ from System import Func, Delegate
 from System.Collections.Generic import Dictionary
 from IronPython.Compiler import CallTarget0
 
-class adcs(HSFSubsystem.Subsystem):
+class fill_in(HSFSubsystem.Subsystem):
 
     __namespace__ = "PythonBaseModel"
 
@@ -47,12 +46,12 @@ class adcs(HSFSubsystem.Subsystem):
 
 
     def CanPerform(self, event, universe):
-        return super(adcs, self).CanPerform(event, universe)
+        return super(fill_in, self).CanPerform(event, universe)
 
 
     def CanExtend(self, event, universe, extendTo):
-        return super(adcs, self).CanExtend(self, event, universe, extendTo)
+        return super(fill_in, self).CanExtend(self, event, universe, extendTo)
 
 
     def DependencyCollector(self, currentEvent):
-        return super(adcs, self).DependencyCollector(currentEvent)
+        return super(fill_in, self).DependencyCollector(currentEvent)

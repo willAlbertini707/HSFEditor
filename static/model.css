@@ -90,6 +90,25 @@ body h1.question {
     margin-bottom: 5px;
 }
 
+.container__left .testInput {
+    display: grid;
+    align-items: center;
+    grid-template-columns: max-content max-content;
+    grid-gap:5px;
+}
+
+.container__left .testInput label{ text-align:right; }
+
+.container__left .testInput label::after {
+    content: "\a";
+    white-space: pre;
+}
+
+.container__left .testInput label::before {
+    content: "\a";
+    white-space: pre;
+}
+
 .fileManager {
     text-align: center;
 }

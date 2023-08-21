@@ -17,11 +17,21 @@ document.getElementById("codeFile").onchange = () => {
     document.getElementById("fileSubmit").removeAttribute("disabled");
 }
 
+// same as above but for xml file upload
+// listen for file submit
+document.getElementById("xmlFile").onchange = () => {
+    document.getElementById("xmlFileSubmit").removeAttribute("disabled");
+}
+
 // do not allow user to open/test/delete without selecting file
+document.getElementById("dirXmlFile").onchange = () => {
+    document.getElementById("deleteXml").removeAttribute("disabled");
+}
+
+
 document.getElementById("subsystemFile").onchange = () => {
     document.getElementById("open").removeAttribute("disabled");
     document.getElementById("delete").removeAttribute("disabled");
-    document.getElementById("tester").removeAttribute("disabled");
 }
 
 // dynamically resize all the windows
