@@ -5,12 +5,12 @@ It utilizes a web application feel and is locally hosted. The program relies on 
 (linked above), as well as the project PythonNet, to allow access to native HSF C# objects in a python runtime. 
 
 ## Dependencies
-Python 3.10.11
+>Python 3.10.11  
 
 The program uses the following non-native libraries/projects:
-Flask 2.2.2
-PythonNet 3.0.1
-bs4 4.12.2
+>Flask 2.2.2
+>PythonNet 3.0.1
+>bs4 4.12.2
 
 ## Disclaimer
 This software relies on XML documents and Python scripts for subsystems, targets, and sim parameters. The documents currently used are
